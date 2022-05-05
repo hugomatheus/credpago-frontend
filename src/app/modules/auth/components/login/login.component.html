@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card>
+    <form [formGroup]="loginForm">
+      <h2>{{ title }}</h2>
+      <mat-form-field>
+        <input matInput placeholder="E-mail" formControlName="email" name="email" type="text" required>
+        <mat-error>
+          E-mail inválido
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Senha" formControlName="password" name="password" type="password" required>
+        <mat-error>
+          Senha inválida
+        </mat-error>
+      </mat-form-field>
+      <div>
+        <a [routerLink]="['/register']" mat-button class="action-button-register">
+          Cadastro
+        </a>
+        <button type="submit" (click)="onLoginSubmit(loginForm.value)" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+      </div>
+    </form>
+  </mat-card>
+
+</div>
