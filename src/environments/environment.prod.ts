@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'http://credpago.localhost/api/v1'
+  apiURL: 'http://161.35.100.235/api/v1'
 };
