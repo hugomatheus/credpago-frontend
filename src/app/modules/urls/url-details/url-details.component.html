@@ -1,0 +1,9 @@
+<div class="container" *ngIf="url">
+  <p>UUID: {{url.uuid}}</p>
+  <p>URL: {{url.description}}</p>
+  <div *ngFor="let detail of url.url_requests">
+    <p>Status Code: {{detail.code}}</p>
+    <p>Data: {{detail.created_at | date: 'dd/MM/yyyy hh:mm'}}</p>
+    <p>body: {{detail.body}}</p>
+  </div>
+</div>

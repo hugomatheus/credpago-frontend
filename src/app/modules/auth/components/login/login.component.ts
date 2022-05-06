@@ -32,24 +32,13 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginSubmit(form: FormGroup) {
-    console.log(form);
-    // this.authService.authenticate(this.loginForm.value.email, this.loginForm.value.password).subscribe(
-    //   (response: any) => {
-    //     console.log(response);
-    //   },
-    //   (error: any) => {
-    //     alert('Usuário ou senha inválido');
-    //     console.log(error);
-    //   }
-    // );
-
     this.authService.authenticate(this.loginForm.value.email, this.loginForm.value.password).subscribe(
       {
         next: (v) => console.log(v),
         error: (e) => this.toastr.warning('E-mail/Senha incorreto.', 'AVISO:'),
         complete: () => {
           this.toastr.success('Login realizado com sucesso.', 'SUCESSO:');
-          this.router.navigate(['urls']);
+          this.router.navigate(['urls/list']);
         }
       }
     );

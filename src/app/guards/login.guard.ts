@@ -12,7 +12,7 @@ export class LoginGuard implements CanLoad {
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(this.authService.existsToken()) {
-        this.router.navigate(['urls']);
+        this.router.navigate(['urls/list']);
         return false;
       }
       return true;

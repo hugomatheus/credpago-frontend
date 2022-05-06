@@ -1,0 +1,20 @@
+<mat-card>
+
+  <form [formGroup]="form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>URL</mat-label>
+      <input matInput formControlName="description" name="description" #message maxlength="255" placeholder="https://">
+      <mat-hint align="end">{{message.value.length}} / 255</mat-hint>
+      <mat-error>
+        URL inválido
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="cancel()" color="secondary" class="action-button-cancel">
+      cancelar
+  </button>
+  <button type="submit" mat-raised-button (click)="create()" mat-raised-button color="primary" [disabled]="!form.valid">
+      Salvar
+  </button>
+</mat-card>

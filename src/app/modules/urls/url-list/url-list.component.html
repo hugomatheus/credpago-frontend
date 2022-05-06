@@ -1,1 +1,36 @@
-<p>url-list works!</p>
+<button class="create" mat-raised-button (click)="create()" color="primary">
+  Nova URL
+</button>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div  class="mat-elevation-z8" *ngIf="urls && dataSource">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> URL </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Visualizar </th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['/urls/details', element.uuid]"  class="info">
+          <i class="material-icons">info</i>
+        </a>
+
+      </td>
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
