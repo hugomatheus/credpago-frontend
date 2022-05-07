@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   onLoginSubmit(form: FormGroup) {
     this.authService.authenticate(this.loginForm.value.email, this.loginForm.value.password).subscribe(
       {
-        next: (v) => console.log(v),
+        next: (v) => '',
         error: (e) => this.toastr.warning('E-mail/Senha incorreto.', 'AVISO:'),
         complete: () => {
           this.toastr.success('Login realizado com sucesso.', 'SUCESSO:');
